@@ -113,7 +113,7 @@ $(".activities input").on('change', function() {
        } else {
            activityPrice -= 200;
        } 
-    };
+    }
     
     $('#totalCost').html("Total: $" + activityPrice);
 });
@@ -143,7 +143,7 @@ $('#payment').on('change', function(){
         $('#payment').siblings('div').last().show();
     } else hidePayments();
     
-})
+});
 
 //***************//
 //submit Section//
@@ -158,7 +158,7 @@ $('form').submit(function () {
     //assigns form items into an array
     var a1 = [$('#name'), $('#title'), $('#size'), $('#design'), $('#color'), $('#payment')];
     ////assigns cc detail items into an array
-    var aCC = [$('#exp-month'),$('#exp-year')]
+    var aCC = [$('#exp-month'),$('#exp-year')];
     //counter used to count how many form inputs are wrong or empty
     var specialCounter = 0;
     // Check if form input items contained in a1 array are empty
@@ -170,7 +170,7 @@ $('form').submit(function () {
     }
     //email check if html5 method fails
     var mailValue = $('#mail').val();
-    if (emailCheck.test(mailValue) == false){
+    if (emailCheck.test(mailValue) === false){
         $('#mail').prev().addClass('required');
             specialCounter++;
         $('#mail').prev().text( "Email: * Please enter a valid email *" ).show();
@@ -225,16 +225,16 @@ $('form').submit(function () {
     }
     //error message for incomplete title selection
     if ($('#title').val() == "other") {
-        if ($('#other-title').val() == '') {
+        if ($('#other-title').val() === '') {
             $('#title').prev().addClass('required');
             specialCounter++;
         }
     }
     //error message for incomplete workshop selection
-    if($('#workshops input[type=checkbox]:checked').length == false){ 
+    if($('#workshops input[type=checkbox]:checked').length === false){ 
         $("#totalCost").addClass('required');
         specialCounter++;
-    };
+    }
     //error message if anything on the page is missing or incorrect
     //also fails the submit function
     if (specialCounter > 0){
